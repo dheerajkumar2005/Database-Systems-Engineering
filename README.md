@@ -6,51 +6,6 @@
 [![Full-Stack](https://img.shields.io/badge/Full--Stack-Node.js%20%7C%20React%20%7C%20React%20Native-61DAFB?style=flat&logo=react&logoColor=black)]()
 [![IIT Bombay](https://img.shields.io/badge/IIT%20Bombay-CS349%20DBIS-red.svg)](https://www.cse.iitb.ac.in/)
 
-> **Academic Affiliation**: Course Projects for **CS 349: Database and Information Systems**, IIT Bombay  
-> **Instructors**: **Prof. S. Sudarshan** & **Prof. Suraj Shetiya**  
-> **Authors**: **Dheeraj Kumar Maradana** ([@dheerajkumar2005](https://github.com/dheerajkumar2005)) & **Hari Shankar Karthik** (23B0960)
-
----
-
-## 📌 Executive Summary
-
-This repository houses the complete laboratory implementations, database schemas, full-stack MVC portals, distributed data streaming pipelines, and query optimization benchmarks developed across Labs 1 through 10 in **CS 349: Database and Information Systems**.
-
-The curriculum spans the full modern data stack: relational DDL/DML, programmatic drivers, transaction concurrency, multi-tier web/mobile applications, distributed stream processing, vector search with **PostgreSQL `pgvector` (RAG)**, and low-level query plan execution profiling.
-
----
-
-## 🏗️ Architecture & Technology Stack
-
-```mermaid
-flowchart TD
-    subgraph Storage["Data & Storage Layer"]
-        PG["PostgreSQL (ACID, Relational)"]
-        VEC["pgvector (HNSW / IVFFlat Embeddings)"]
-        Spark["Apache PySpark (Distributed Analytics)"]
-    end
-
-    subgraph Messaging["Streaming & Orchestration"]
-        Kafka["Apache Kafka Event Broker"]
-        Docker["Docker Compose Multi-Container Mesh"]
-    end
-
-    subgraph App["Application & APIs"]
-        Node["Node.js / Express REST API"]
-        Psy["Python (Psycopg2) Driver"]
-    end
-
-    subgraph Client["Presentation & Client Layer"]
-        Web["React + Vite Web Dashboard"]
-        Mobile["React Native / Expo Mobile App"]
-        EJS["Server-Side Rendered (EJS) Portals"]
-    end
-
-    Storage --> Messaging
-    Messaging --> App
-    App --> Client
-```
-
 ---
 
 ## 🔬 Module-by-Module Breakdown (Labs 1–10)
