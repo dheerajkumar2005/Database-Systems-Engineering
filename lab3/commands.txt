@@ -1,0 +1,2 @@
+connect localhost 5432 db2 dheerajkumar 123
+ddl universitySchema.sql

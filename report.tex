@@ -1,0 +1,155 @@
+\documentclass[10pt,a4paper]{article}
+
+% --- Core Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{listings}
+
+% --- Hyperlink Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!70!black
+}
+
+% --- Compact Section Formatting ---
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{2pt}
+\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=1.2em}
+\setlist[enumerate]{noitemsep, topsep=1pt, leftmargin=1.2em}
+
+% --- Code Snippet Styling ---
+\lstset{
+    basicstyle=\ttfamily\scriptsize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!6},
+    rulecolor=\color{gray!25},
+    numbers=none,
+    keywordstyle=\color{blue!80!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!70!black}
+}
+
+% --- Header Details ---
+\title{\vspace{-1.8em}\Large\textbf{CS349: Database and Information Systems} \\ \large\textbf{Comprehensive Laboratory Technical Report (Labs 1--10)}\vspace{-0.6em}}
+\author{\textbf{Roll Numbers:} 23B0920, 23B0960 \quad|\quad \textbf{Term:} Spring 2026}
+\date{\vspace{-0.6em}}
+
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+
+\section{Introduction}
+This report provides a concise, structured overview of the software implementations, database schemas, scripts, query optimizations, and data-processing pipelines developed across Labs 1 through 10 in \textbf{CS349: Database and Information Systems}. The curriculum spans foundational relational database design, programmatic database connectivity, full-stack MVC web portals, distributed big-data analytics with PySpark, containerization, vector databases with Retrieval-Augmented Generation (RAG), and database query engine profiling.
+
+\section{Module-by-Module Technical Summary}
+
+\subsection{Labs 1 \& 2: Relational Schema Design, DDL, and Complex SQL Queries}
+\begin{itemize}
+    \item \textbf{Scope \& Schema:} Defined relational DDL specifications enforcing primary, foreign key, and domain constraints across multi-table schemas (University, E-commerce, and Small Relations).
+    \item \textbf{SQL Implementation:} Formulated advanced SQL queries involving multi-way inner/outer joins, nested correlated subqueries (\texttt{EXISTS}, \texttt{IN}), aggregations with \texttt{GROUP BY} / \texttt{HAVING}, window functions, and set operations (\texttt{UNION}, \texttt{INTERSECT}, \texttt{EXCEPT}).
+    \item \textbf{Integrity Enforcement:} Tested transactional inserts, cascading updates/deletions, and referential consistency checks under edge-case data insertions.
+\end{itemize}
+
+\subsection{Lab 3: Programmatic Database Access with Python \& Psycopg2}
+\begin{itemize}
+    \item \textbf{Architecture:} Built automated Python backend scripts (\texttt{23b0920\_3a.py}, \texttt{23b0920\_3b.py}) establishing database sessions using \texttt{psycopg2}.
+    \item \textbf{Key Features:} Implemented parameterized dynamic query generation preventing SQL injection attacks, transaction rollback handling with \texttt{try-except-finally} blocks, cursor management, and automated extraction/formatting of structured relational outputs.
+\end{itemize}
+
+\subsection{Lab 4: MVC Web Application with Node.js, Express, EJS, and PostgreSQL}
+\begin{itemize}
+    \item \textbf{System Architecture:} Developed a full-stack University Academic Management Portal based on the Model-View-Controller (MVC) paradigm using Node.js and Express.
+    \item \textbf{Backend \& Routing (\texttt{app.js}):} Implemented asynchronous REST endpoints and session-based authentication separating Student and Instructor roles.
+    \item \textbf{Database Layer:} Executed transactional queries for dynamic course registration, prerequisite validation, and grade submission against PostgreSQL.
+    \item \textbf{Frontend Views (\texttt{.ejs}):} Rendered server-side views for user login, student registration dashboards, and instructor course grading tables.
+\end{itemize}
+
+\subsection{Labs 5 \& 6: Full-Stack Web Development, REST APIs \& State Management}
+\begin{itemize}
+    \item \textbf{Architecture:} Architected end-to-end full-stack web applications featuring decoupled frontend clients communicating with modular backend API servers.
+    \item \textbf{API Services:} Built robust CRUD services, JWT/session authentication, middleware request validators, and relational database persistence layers with automated schema migration scripts.
+\end{itemize}
+
+\subsection{Lab 7: Distributed Big Data Analytics with Apache PySpark}
+\begin{itemize}
+    \item \textbf{Framework:} Scalable distributed data processing using PySpark RDDs and DataFrames on large-scale dataset logs (\texttt{movies.txt}, \texttt{transactions.csv}).
+    \item \textbf{Tasks \& Transformations (\texttt{q1.py}, \texttt{q2.py}):}
+    \begin{itemize}
+        \item Implemented map-reduce workflows, key-value pair transformations (\texttt{mapValues}, \texttt{reduceByKey}), and distributed joins across partitioned partitions.
+        \item Executed transaction frequency aggregations, high-value transaction filtering, and ranking queries over massive datasets with minimal memory footprint and parallelized task scheduling.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Lab 8: Multi-Container Orchestration with Docker Compose}
+\begin{itemize}
+    \item \textbf{Infrastructure:} Orchestrated multi-tier containerized environments using \texttt{docker-compose.yml} to establish isolated database networks, application servers, and volume persistence mounts.
+    \item \textbf{Environment Isolation:} Configured environment variables, network bridges, automated health checks, and service dependency graphs for reproducible deployments.
+\end{itemize}
+
+\subsection{Lab 9: Retrieval-Augmented Generation (RAG) with PostgreSQL \& pgvector}
+\begin{itemize}
+    \item \textbf{System Pipeline:} Built an offline RAG system over the IMDb Top 1000 Movies catalog utilizing PostgreSQL, the \texttt{pgvector} extension, and a local open-weights LLM (\texttt{smollm2:135m}) via the Ollama REST API.
+    \item \textbf{Dense Embedding \& Storage (\texttt{model.py}):} Ingested movie metadata, generated 576-dimensional dense vector embeddings for plot overviews, and updated database rows using parameterized vector casts (\texttt{\%s::vector}).
+    \item \textbf{Vector Similarity \& Indexing (\texttt{rag.py}, \texttt{experiments.py}):} Benchmark-tested vector operators and indexing methods:
+    \begin{itemize}
+        \item Distance metrics: Cosine (\texttt{<=>}), L2 / Euclidean (\texttt{<->}), Inner Product (\texttt{<\#>}), and Manhattan / L1 (\texttt{<+>}).
+        \item Index structures: Evaluated Sequential Scan vs.\ HNSW (\textit{Hierarchical Navigable Small World}) vs.\ IVFFlat (\textit{Inverted File Flat}).
+    \end{itemize}
+    \item \textbf{Generation Pipeline:} Implemented top-$k$ nearest neighbor retrieval ($k=5$), constructed dynamic prompt context windows, and synthesized grounded, hallucination-free answers through Ollama's chat generation API.
+\end{itemize}
+
+\subsection{Lab 10: Query Plan Profiling, Indexing Strategies, and Performance Optimization}
+\begin{itemize}
+    \item \textbf{Query Execution Analysis:} Utilized \texttt{EXPLAIN (ANALYZE, BUFFERS)} to inspect cost estimation models, buffer cache hits, recursive Common Table Expressions (CTEs), and execution steps on large transaction tables (e.g., \texttt{ipl\_deliveries}, \texttt{takes}).
+    \item \textbf{Access Method Profiling:} Compared Sequential Scans against Index Scans, Bitmap Index Scans, and Index-Only Scans under B-Tree indexes, observing dramatic latency improvements on high-selectivity predicates.
+\end{itemize}
+
+\section{Consolidated Summary of System Technologies \& Code Artifacts}
+
+\begin{table}[h!]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{lp{3.4cm}p{4.2cm}X}
+\toprule
+\textbf{Lab Module} & \textbf{Core Technologies} & \textbf{Key Code Artifacts} & \textbf{Key Competencies / Concepts Demonstrated} \\
+\midrule
+\textbf{Labs 1 \& 2} & PostgreSQL, SQL & \texttt{DDL.sql}, \texttt{ecommerceSchema.sql} & Schema design, constraints, nested subqueries, aggregations. \\
+\textbf{Lab 3}       & Python, Psycopg2 & \texttt{23b0920\_3a.py}, \texttt{23b0920\_3b.py} & Programmatic database connectivity, transactions, parameterized queries. \\
+\textbf{Lab 4}       & Node.js, Express, EJS, SQL & \texttt{app.js}, \texttt{views/*.ejs}, \texttt{DDL.sql} & MVC architecture, session auth, asynchronous database query pipelines. \\
+\textbf{Labs 5 \& 6} & JavaScript, Express, HTML/CSS & \texttt{backend/}, \texttt{frontend/} & Decoupled client-server architecture, RESTful API endpoints, state sync. \\
+\textbf{Lab 7}       & Apache PySpark, Python & \texttt{q1.py}, \texttt{q2.py}, \texttt{movies.txt} & Distributed computing, RDD transformations, distributed joins, map-reduce. \\
+\textbf{Lab 8}       & Docker, Docker Compose & \texttt{docker-compose.yml} & Container orchestration, service discovery, database persistence mounts. \\
+\textbf{Lab 9}       & pgvector, Ollama, Python & \texttt{model.py}, \texttt{rag.py}, \texttt{experiments.py} & Semantic search, vector indexing (HNSW, IVFFlat), RAG with local LLMs. \\
+\textbf{Lab 10}      & PostgreSQL Engine, EXPLAIN & \texttt{DDL.sql}, \texttt{answers.txt} & Query plan evaluation, cost estimation, B-tree index scan optimization. \\
+\bottomrule
+\end{tabularx}
+\caption{Consolidated overview of technologies, source files, and database paradigms implemented across Labs 1--10.}
+\label{tab:labs_summary}
+\end{table}
+
+\section{Experimental Insights \& Cross-Cutting Findings}
+\begin{itemize}
+    \item \textbf{Data Access Layer vs. Engine Performance:} Direct database abstraction via parameterized drivers (\texttt{psycopg2}, \texttt{pg} in Node.js) avoids injection overhead while maximizing throughput via connection reuse.
+    \item \textbf{Exact vs.\ Approximate Search in High Dimensions:} Standard B-Trees fail on high-dimensional vectors, whereas specialized indexes like HNSW in \texttt{pgvector} reduce retrieval latency from $>7$ ms (sequential scan) down to $\approx 1.1$ ms with high recall.
+    \item \textbf{Relational Database Profiling:} Understanding execution engine query plans (\texttt{EXPLAIN ANALYZE}) is crucial for identifying bottleneck operations (e.g., unindexed filter predicates causing full table scans).
+    \item \textbf{Scalability Parallels:} Big data operations scale horizontally across clusters using distributed frameworks like PySpark, while containerization (Docker) ensures environment parity from local development to production deployment.
+\end{itemize}
+
+\section{Conclusion}
+Across the ten laboratory modules, we designed, implemented, and benchmarked a complete continuum of database and information systems technologies. The implementations progress from fundamental relational schema modeling and query writing to full-stack transactional applications, distributed big-data processing, AI-driven vector retrieval with local LLMs, and database engine performance tuning.
+
+\end{document}

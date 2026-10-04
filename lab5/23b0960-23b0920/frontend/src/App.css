@@ -1,0 +1,137 @@
+/* You may style this component yourself.
+/* ========== GLOBAL APP LAYOUT ========== */
+
+.app {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Make login page full width */
+.login-page {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to bottom, #3b82f6, #1e3a8a);
+}
+
+.login-page .container {
+  width: 100%;
+  max-width: 400px;   /* keeps login card nicely sized */
+  display: flex;
+  justify-content: center;
+}
+
+/* Shared container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========== NAVBAR ========== */
+
+nav.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 30px;
+}
+
+/* Logo section */
+.logo {
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.logo strong {
+  color: #2563eb;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Nav links */
+.nav-links a {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+/* Logout button */
+.nav-links button {
+  padding: 8px 14px;
+  background: #ef4444;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav-links button:hover {
+  background: #dc2626;
+}
+
+/* ========== LOADING SCREEN ========== */
+
+.app > div:only-child {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #555;
+}
+
+/* ========== PAGE CONTENT SPACING ========== */
+
+.container > * {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Simple fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+  nav.container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

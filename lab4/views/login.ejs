@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Course Registration</title>
+</head>
+
+<body>
+    <h1>Course Registration Portal</h1>
+
+    <!-- TODO: Implement Login Form -->
+    <!-- Inputs: username, password -->
+    <!-- Method: POST, Action: /login -->
+
+    <form action="/login" method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        <br><br>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <% if (error_msg) { %>
+        <p style="color: red;"><%= error_msg %></p>
+    <% } %>
+
+</body>
+
+</html>

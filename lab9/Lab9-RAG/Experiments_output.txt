@@ -1,0 +1,210 @@
+L2 (Euclidean) - No Index Search
+  Query 1 ('Top 5 thriller movies') took: 0.0171 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0063 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0063 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0033 seconds
+  Query 5 ('Top 5 action movies') took: 0.0033 seconds
+HNSW Index built in 0.2639 seconds.
+L2 (Euclidean) With HNSW Index
+  Query 1 ('Top 5 thriller movies') took: 0.0020 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0010 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0011 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0011 seconds
+  Query 5 ('Top 5 action movies') took: 0.0012 seconds
+IVFFlat Index built in 0.0888 seconds.
+L2 (Euclidean) - With IVFFlat Index
+  Query 1 ('Top 5 thriller movies') took: 0.0009 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0006 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0006 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0007 seconds
+  Query 5 ('Top 5 action movies') took: 0.0007 seconds
+Inner Product - No Index Search
+  Query 1 ('Top 5 thriller movies') took: 0.0034 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0031 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0029 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0035 seconds
+  Query 5 ('Top 5 action movies') took: 0.0030 seconds
+HNSW Index built in 0.1970 seconds.
+Inner Product With HNSW Index
+  Query 1 ('Top 5 thriller movies') took: 0.0010 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0007 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0008 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0011 seconds
+  Query 5 ('Top 5 action movies') took: 0.0007 seconds
+IVFFlat Index built in 0.0880 seconds.
+Inner Product - With IVFFlat Index
+  Query 1 ('Top 5 thriller movies') took: 0.0012 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0008 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0007 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0007 seconds
+  Query 5 ('Top 5 action movies') took: 0.0008 seconds
+L1 (Manhattan) - No Index Search
+  Query 1 ('Top 5 thriller movies') took: 0.0035 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0034 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0032 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0032 seconds
+  Query 5 ('Top 5 action movies') took: 0.0030 seconds
+HNSW Index built in 0.2293 seconds.
+L1 (Manhattan) With HNSW Index
+  Query 1 ('Top 5 thriller movies') took: 0.0010 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0007 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0007 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0006 seconds
+  Query 5 ('Top 5 action movies') took: 0.0006 seconds
+Cosine - No Index Search
+  Query 1 ('Top 5 thriller movies') took: 0.0071 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0052 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0034 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0036 seconds
+  Query 5 ('Top 5 action movies') took: 0.0040 seconds
+HNSW Index built in 0.2361 seconds.
+Cosine With HNSW Index
+  Query 1 ('Top 5 thriller movies') took: 0.0018 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0013 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0012 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0007 seconds
+  Query 5 ('Top 5 action movies') took: 0.0006 seconds
+IVFFlat Index built in 0.1097 seconds.
+Cosine - With IVFFlat Index
+  Query 1 ('Top 5 thriller movies') took: 0.0009 seconds
+  Query 2 ('Top 5 horror movies') took: 0.0006 seconds
+  Query 3 ('Sci-fi adventure in space with aliens') took: 0.0005 seconds
+  Query 4 ('Documentary about nature and wild animals') took: 0.0006 seconds
+  Query 5 ('Top 5 action movies') took: 0.0006 seconds
+
+
+With L2 (Euclidean) <->:
+Query 1: 
+'Top 5 thriller movies'
+Response:
+1. "The Executioner's Killing" - 4 stars
+2. "The Shawshank Redemption" - 3.5 stars
+3. "Jurassic Park" - 3 star rating
+4. "Kung Fu Panda 2018" - 3.7 stars
+5. "Avengers: Endgame" - 3.9 star rating
+
+
+Query 2:
+'Top 5 Horror movies'
+Response:
+1) The Unfortunate Master (2017): This film is about a group of misfits who are forced to live in an isolated cabin for a year before being able to escape from their mundane lives. It's not as frightening as its predecessor, but it still has some interesting themes and plot twists.
+
+2) The Shadow of the Wind (2018): This film is about a group of misfits living on the edge of a dense forest after being stranded in a harsh environment for years. Their sudden arrival can trigger supernatural phenomena that are both terrifying and intriguing.
+
+3) The Island of Lost Dreams (2019): A group of misfits who are taken to a remote island by a mysterious government scientist comes across an abandoned cabin with no access to the restrooms or showers. They soon discover that their dreams have been awakened, but it is only for short periods and not long-term.
+
+4) The Shadow (2019): This film is about two misfits living in a remote wilderness on a post-apocalyptic island where they are forced to adapt and adjust to life as lone survivors. They must learn to rely on each other, find food, shelter, and safety from the harsh environment that has taken their lives.
+
+5) The Sound of Silence (2019): This film is about a group of misfits living in a remote cabin on a remote island after being stranded in an earthquake by a mysterious government scientist. They are forced to work together as a team for hours, finding food and shelter before their entire existence comes crashing down around them.
+
+Query 3:
+'Sci-fi adventure in space with aliens'
+Response:
+Based on the given movie names, let's analyze their plot elements and determine if they meet the criteria for a sci-fi adventure in space.
+
+1. An introvert freshman is taken under the wings of two seniors who welcome him to the real world - this element could be intended as a character introduction or a setup for a story about acceptance, self-acceptance, or social change.
+
+2. The movie starts with an introverted freshman being introduced by a senior who welcomes them into the world and introduces them to his social circle. This creates a sense of welcome and inclusion among the audience's peers.
+
+3. Lives of residents in a small Anatolian village changes when television is introduced to them - this element could be intended as a character introduction or a setup for a story about identity, community, or societal change. It might also create an atmosphere of unease or suspicion due to the introduction of something that does not conform to expectations or norms.
+
+4. A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O - this element could be intended as a story about identity, social change, or self-discovery within a futuristic setting. It might also create tension and conflict among those around the protagonist due to their own expectations versus reality.
+
+5. A young programmer is selected to participate in a ground-breaking experiment in synthetic intelligence by evaluating the human qualities of a highly advanced humanoid A.I.'s personality - this element could be intended as a plot device for an exploration of artificial intelligence and its impact on society, education, or personal growth. It might also create tension between those who are influenced by AI and those who reject it due to its limitations.
+
+Query 4:
+'Documentary about nature and wild animals'
+Response: 
+A documentary on nature and wildlife titled "Wildlife Watch" is being produced for Hugging Face to bring viewers an unforgettable experience. The documentary explores various natural phenomena through the lens of wildlife, highlighting conservation efforts, biodiversity preservation, and ecological wonders like the endangered species' habitat in the Amazon rainforest and the majestic animals that roam the globe's vast ecosystems.
+
+The film features 120 participants who are chosen for specific roles within a nature-based community to participate in an immersive and educational experience. Their journey begins with the introduction of charismatic wildlife, such as elephants, tigers, or penguins, which are carefully introduced into their daily life through interactive activities and videos. As they become more familiarized with their surroundings, they learn about local flora and fauna, like the majestic giraffes' habitat along the Amazon River and the unique adaptations of the rare Andean Condor that resides in the Andes Mountains.
+
+The documentary also delves into the science behind animal behavior, including the impact of environmental factors on wildlife populations and how conservation efforts can contribute to ecological balance. To further educate viewers about their role as a member of the community and their contribution to preserving these natural wonders, they participate in activities like scavenger hunts or nature walks where they interact with local flora and fauna.
+
+Throughout the documentary, Hugging Face provides vivid visuals that bring the scene to life, allowing participants to witness firsthand the awe-inspiring diversity and majesty of wildlife around them. The film concludes with a powerful conclusion highlighting the importance of conservation efforts for preserving natural beauty and biodiversity in both human societies and non-human ecosystems.
+
+Query 5:
+'Top 5 action movies'
+Here are the top 5 action movies based on the given information:
+
+1. "Lives of Residents in a Small Anatolian Village" - This is the story of an Anatolian village where residents change when television is introduced, and these changes lead to significant events that have their own consequences. It's an interesting blend of storytelling with elements of science fiction and action filmmaking.
+
+2. "A Hunger Artist" - This is a dark drama movie about an artist who uses his art as a form of self-expression, but at the same time he faces challenges such as violence and loss. It has its own set of themes that could be explored in the movie.
+
+3. "The Three Little Pigs" - A story of survival where characters have to survive in various environments like an abandoned mine or a forest, forcing them to adapt to their new surroundings and face unexpected dangers. The film also deals with themes related to friendship, survival skills, and overcoming adversity.
+
+4. "A Clockwork Orange" - This is a science fiction thriller that involves a group of people who are transformed into monstrous creatures after they have experienced unimaginable pain or suffering through the use of drugs and alcohol. It's a thought-provoking movie with themes related to morality, control, and the consequences of using technology for personal gain.
+
+5. "The Godfather" - This classic film is about a corrupt, inept police officer who takes on the role of "Godfather." Through his actions and decisions, the audience gets a glimpse into the moral complexities of a typical American life.
+
+These are just five examples based on the given information. The movies can be categorized under various genres such as action, drama, horror, comedy, or sci-fi to suit the target audience's preferences.
+
+
+with Inner Product <#>:
+
+Query 1: 
+'Top 5 thriller movies'
+Response:
+1. The Woman in the Lake; In a strange, surreal world that exists within the lake's depths, a woman with no body and no voice finds herself trapped by an evil entity after discovering her own memory is being erased.
+
+2. The Lost City of the Dead with a focus on how the story progresses through the eyes of a character, who becomes obsessed to uncover clues which can resolve the mystery and save his family from unimaginable pain.
+
+3. The Seven Years' War with its many sub-plots that explore love between two characters at once before being disrupted by an unexpected ally and then further complicated by the loss of one of them.
+
+4. The Haunted House of Spirits in which a young girl is haunted by her deceased grandmother, making it harder to leave her alone in a world where people's memories are often distorted.
+
+5. The 8-Bit Girls - This film takes on a more introspective and complex path after the film begins with a group of women who were all involved during the Civil War and come together in the film about the many young women who had been torn apart by war, their roles as soldiers and nurses being forgotten along with those of older people.
+
+
+Query 2:
+'Top 5 horror movies'
+Response:
+1. The Shining (2008): The first sequel, based on Stephen King's novel of the same name by Robert Pinsky, is known for its supernatural and supernatural themes, especially in the case of the story about a young girl who goes missing after being abducted by the supernatural entity.
+
+2. The Blair Witch Project (2014): This film explores the paranormal with elements reminiscent from the horror genre such as ghost sightings, demonic possession, haunted houses, and unexplained phenomena.
+
+3. The Exorcist (1973) : This 20th-century western features a malevolent spirit that takes up residence in the body of an unsuspecting protagonist who survives a gruesome ordeal to rescue the evil entity.
+
+4. Hell on Earth (1986): Based on George Romero's novella "The Day After Tomorrow", this dystopian novel is set on Earth, and its themes are also related with horror, including supernatural creatures such as demons and vampires in a dark world of modern day society.
+
+5. The Shawshank Redemption (2005) : A gritty psychological thriller based on the novel by Stephen King's screenplay, this film was directed by Martin Scorsese, which is considered one of the most popular and critically acclaimed films of all time, widely regarded as a masterpiece of cinema history.
+
+Query 3:
+'Sci-fi adventure in space with aliens'
+Response:
+Based on the given movies names and movie plots, I would recommend the first movie to be "An introvert freshman is taken under the wings of two seniors who welcome him to the real world." This title effectively conveys the importance of the protagonist being introduced through a relatable character. It also introduces the concept of aliens, which is another aspect that should be mentioned in addition to the main plot. The movies have already established a strong connection between the protagonist and his new environment, making it essential for this part to focus on this relationship as well.
+
+The second movie might seem more focused on space exploration but could also benefit from some improvement: "A young programmer is selected to participate in a ground-breaking experiment in synthetic intelligence by evaluating the human qualities of a highly advanced humanoid A.I." The main plot focuses on the protagonist's arrival, but it can be developed further by introducing the idea that this new environment will challenge the AI in ways he may not have realized and maybe even change his perspective.
+
+Lastly, the third movie could benefit from some refinement: "Lives of residents in a small Anatolian village changes when television is introduced to them." This title effectively conveys the significance of the protagonist's arrival and how it might be affected by various external influences, which can also be developed further later on.
+
+Overall, with these suggestions, I believe that this film will have an interesting and dynamic plot for introducing the main characters and exploring their relationships in a unique way.
+
+Query 4:
+'Documentary about nature and wild animals'
+Response:
+Based on the provided movie titles and their contents, we can infer that these films focus on natural phenomena, wildlife, or creatures found in different environments. Some possible storylines could include:
+
+1. Lives of residents in a small Anatolian village changes when television is introduced to them (the introvert freshman) - this implies an interesting exploration of the changing environment and the emergence of new life forms within it.
+
+2. An introduction to a half-frozen little girl, with no parents and no help in sight (the four men plan a technically perfect crime) - this could refer to an intriguing scenario where these characters are trying to solve a puzzle or uncover some kind of mystery within themselves as they try to understand their surroundings better.
+
+3. A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O (the four men plan a technically perfect crime) - this could suggest a possible plot involving some form of intellectual or creative theft, where these characters are trying to uncover new ways to operate within their own minds and systems rather than stealing data from others through physical means.
+
+However, it is worth noting that the context provided about these films suggests that they might be more concerned with nature-based storytelling or the depiction of animals in different environments. The inclusion of an animal protagonist could imply a sense of exploration beyond mere survival skills; perhaps this character's journey takes them to hidden corners of their environment for lessons, adventures, and encounters that reveal aspects of themselves beyond their immediate surroundings.
+
+Query 5:
+'Top 5 action movies'
+Response:
+1. Pulp Fiction (2017) - This classic action movie is a great example of a gritty, high-energy genre that explores the complexities of life through violence and character drama.
+
+2. Casablanca (1942) - This French film tells the story of a French Resistance fighter who must survive a deadly siege in Morocco with his family. It's an action movie about gritty survival stories.
+
+3. The Godfather Part III (1972) - This classic neo-noir drama is a great example of a hard-boiled genre that explores the complexities of relationships and redemption through murder, corruption, and revenge.
+
+4. Casablanca (1956) - A gritty and action film from the same year as "Casablanca", this sequel takes place in Morocco and tells the story of a French Resistance fighter who must survive a deadly siege to save his family. It's another classic neo-noir.
+
+5. The Godfather Part III (1972) - This classic neo-noir revenge drama is a great example of a gritty genre that explores the complexities of relationships and redemption through murder, corruption, and betrayal.
+
+These five films are all action movies with high stakes.
+

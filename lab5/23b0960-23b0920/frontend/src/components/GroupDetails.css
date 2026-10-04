@@ -1,0 +1,143 @@
+/* ========== PAGE WRAPPER ========== */
+
+.group-details {
+  padding: 20px 0 40px 0;
+}
+
+.group-details h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+/* ========== SECTION CARD ========== */
+
+.group-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+.group-card h3 {
+  margin-bottom: 15px;
+  color: #374151;
+}
+
+/* ========== EXPENSE LIST ========== */
+
+.expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-item {
+  padding: 12px 15px;
+  border-radius: 8px;
+  background: #f9fafb;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.expense-item span {
+  font-size: 14px;
+}
+
+/* ========== FORM STYLING ========== */
+
+.group-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.group-form input,
+.group-form select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.group-form input:focus,
+.group-form select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.group-form button {
+  padding: 10px 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: fit-content;
+}
+
+.group-form button:hover {
+  background: #1d4ed8;
+}
+
+/* ========== SPLIT MEMBERS ========== */
+
+.split-section {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.split-section p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.split-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.split-members label {
+  background: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.split-members input {
+  cursor: pointer;
+}
+
+/* ========== EMPTY TEXT ========== */
+
+.empty-text {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ========== LOADING STATE ========== */
+
+.loading-text {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.group-form p {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #555;
+}

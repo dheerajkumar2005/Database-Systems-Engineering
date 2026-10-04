@@ -1,0 +1,76 @@
+/* ========== PAGE WRAPPER ========== */
+
+.groups-page {
+  padding: 20px 0 40px 0;
+}
+
+.groups-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.groups-header h2 {
+  margin: 0;
+  color: #1f2937;
+}
+
+/* ========== CREATE BUTTON ========== */
+
+.create-group-btn {
+  padding: 10px 18px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.create-group-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ========== GROUP GRID ========== */
+
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* ========== GROUP CARD ========== */
+
+.group-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.group-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.group-card h4 {
+  margin: 0;
+  color: #2563eb;
+}
+
+/* ========== EMPTY STATE ========== */
+
+.empty-state {
+  margin-top: 20px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  color: #6b7280;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}

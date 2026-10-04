@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor Dashboard</title>
+</head>
+
+<body>
+    <h1>Instructor Dashboard</h1>
+    <a href="/logout">Logout</a>
+
+    <hr>
+
+    <h1>Welcome, <%= full_name %></h1>
+
+    <!-- TODO: Display Courses Taught by Instructor -->
+    <!-- Link to Course Details page (/instructor/course/:id) -->
+
+    <% if (error_msg) { %>
+        <p style="color: red;"><%= error_msg %></p>
+    <% } %>
+    
+    <h2>My Courses</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Credits</th>
+                <th>Slot</th>
+                <th> Link </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% courses_taught.forEach(course => { %>
+                <tr>
+                    <td><%= course.course_id %></td>
+                    <td><%= course.course_name %></td>
+                    <td><%= course.credits %></td>
+                    <td><%= course.slot %></td>
+                    <td>
+                        <a href="/instructor/course/<%= course.course_id %>">Manage Students</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+
+
+</body>
+
+</html>

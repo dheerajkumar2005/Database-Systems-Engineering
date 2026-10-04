@@ -1,0 +1,6 @@
+export PGUSER=app_user
+export PGPASSWORD=pwd123
+export PGHOST=localhost
+export PGPORT=5432
+export PGDATABASE=mobile_app_db
+export SESSION_SECRET=your_secret_key

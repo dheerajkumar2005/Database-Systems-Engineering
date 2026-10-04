@@ -1,0 +1,128 @@
+/* ========== DASHBOARD WRAPPER ========== */
+
+.dashboard {
+  padding: 20px 0 40px 0;
+}
+
+.dashboard h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+/* ========== SECTION CARDS ========== */
+
+.dashboard-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+.dashboard-card h3 {
+  margin-bottom: 15px;
+  color: #374151;
+}
+
+/* ========== BALANCES LIST ========== */
+
+.balance-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.balance-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #f9fafb;
+  transition: 0.2s ease;
+}
+
+.balance-item:hover {
+  background: #f3f4f6;
+}
+
+/* Positive = you are owed money */
+.positive {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* Negative = you owe money */
+.negative {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* ========== SETTLE FORM ========== */
+
+.settle-form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.settle-form select,
+.settle-form input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.settle-form select:focus,
+.settle-form input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.settle-form button {
+  padding: 10px 18px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.settle-form button:hover {
+  background: #1d4ed8;
+}
+
+/* ========== QUICK LINKS ========== */
+
+.quick-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.quick-links a {
+  text-decoration: none;
+  padding: 10px 15px;
+  background: #eef2ff;
+  color: #2563eb;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.quick-links a:hover {
+  background: #dbeafe;
+}
+
+/* ========== EMPTY TEXT ========== */
+
+.empty-text {
+  color: #6b7280;
+  font-size: 14px;
+}

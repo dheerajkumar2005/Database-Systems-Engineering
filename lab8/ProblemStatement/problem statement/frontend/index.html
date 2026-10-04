@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Market Dashboard — Kafka Lab</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@0.2.1/dist/chartjs-chart-financial.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.3.1/dist/chartjs-adapter-luxon.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    header {
+      background: #1e293b;
+      border-bottom: 1px solid #334155;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    header h1 span { color: #38bdf8; }
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #ef4444;
+    }
+    .status-dot.connected { background: #22c55e; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+    .controls {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .controls h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+    }
+    .controls-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .controls-row label {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+    select, button {
+      font-family: inherit;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: #e2e8f0;
+      cursor: pointer;
+    }
+    select:focus, button:focus { outline: 2px solid #38bdf8; }
+    button {
+      background: #2563eb;
+      border-color: #2563eb;
+      font-weight: 600;
+    }
+    button:hover { background: #1d4ed8; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 900px) {
+      .charts-grid { grid-template-columns: 1fr; }
+    }
+
+    .chart-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .chart-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+    }
+    .chart-wrapper {
+      position: relative;
+      height: 300px;
+    }
+
+    .log-panel {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .log-panel h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+    }
+    #log {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      height: 180px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .log-entry { padding: 2px 0; }
+    .log-entry.stat { color: #38bdf8; }
+    .log-entry.error { color: #f87171; }
+    .log-entry.info { color: #a78bfa; }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .stat-card .label {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-card .value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .stat-card .value.green { color: #22c55e; }
+    .stat-card .value.red { color: #ef4444; }
+    .stat-card .value.blue { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span>Kafka</span> Stock Market Dashboard</h1>
+    <div class="status-badge">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Disconnected</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="controls">
+      <h2>Subscribe to a Topic</h2>
+      <div class="controls-row">
+        <label for="topicSelect">Topic:</label>
+        <select id="topicSelect">
+          <option value="">-- Select a topic --</option>
+          <option value="stock_data">stock_data (raw prices)</option>
+          <option value="google_stats">google_stats</option>
+          <option value="microsoft_stats">microsoft_stats</option>
+          <option value="apple_stats">apple_stats</option>
+          <option value="meta_stats">meta_stats</option>
+        </select>
+        <button id="subscribeBtn" onclick="subscribeTopic()">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="stats-bar" id="statsBar">
+      <div class="stat-card"><div class="label">Low</div><div class="value blue" id="statLow">--</div></div>
+      <div class="stat-card"><div class="label">High</div><div class="value blue" id="statHigh">--</div></div>
+      <div class="stat-card"><div class="label">Mean</div><div class="value blue" id="statMean">--</div></div>
+      <div class="stat-card"><div class="label">Opening</div><div class="value green" id="statOpening">--</div></div>
+      <div class="stat-card"><div class="label">Closing</div><div class="value red" id="statClosing">--</div></div>
+      <div class="stat-card"><div class="label">MAR</div><div class="value blue" id="statMAR">--</div></div>
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Moving Average Plot</h3>
+        <div class="chart-wrapper">
+          <canvas id="movingAvgChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Candlestick Chart</h3>
+        <div class="chart-wrapper">
+          <canvas id="candleChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="log-panel">
+      <h3>Live Message Log</h3>
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

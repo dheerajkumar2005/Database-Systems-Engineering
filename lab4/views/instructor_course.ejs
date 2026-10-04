@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Course Details</title>
+</head>
+
+<body>
+    <h1>Manage Course</h1>
+    <a href="/instructor/dashboard">Back to Dashboard</a>
+
+    <hr>
+    <h2>Course: <%= course.course_name %> (<%= course.course_id %>)</h2>
+
+    <% if (error_msg) { %>
+        <p style="color: red;"><%= error_msg %></p>
+    <% } %>
+    <% if (success_msg) { %>
+        <p style="color: green;"><%= success_msg %></p>
+    <% } %>
+
+    <!-- TODO: Add Student Form -->
+    <!-- Input: Student Username -->
+    <!-- Action: /instructor/add-student -->
+    <h3>Add Student</h3>
+    <form action="/instructor/add-student" method="POST">
+        <input type="hidden" name="course_id" value="<%= course.course_id %>">
+        <label for="student_username">Student Username:</label>
+        <input type="text" name="student_username">
+        <button type="submit">Add</button>
+    </form>
+
+
+    <!-- TODO: List Enrolled Students -->
+    <!-- Show: Student ID, Name -->
+    <!-- Action: Remove Button -->
+    <h3>Enrolled Students</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th> Username</th>
+                <th>Full Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% enrolled_students.forEach(student => { %>
+                <tr>
+                    <td><%= student.user_id %></td>
+                    <td><%= student.username %></td>
+                    <td><%= student.full_name %></td>
+                    <td>
+                        <form action="/instructor/remove-student" method="POST">
+                            <input type="hidden" name="course_id" value="<%= course.course_id %>">
+                            <input type="hidden" name="student_id" value="<%= student.user_id %>">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>
